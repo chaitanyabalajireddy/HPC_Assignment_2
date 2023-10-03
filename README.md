@@ -7,7 +7,7 @@ Created a concurrent double-linked list (sorted list) using the following synchr
 - Lazy Synchronization
 - Non-blocking Synchronization
 
-Verify the performance of the concurrent data structure for different problem sizes (2 × 103, 2 × 104, and 2 × 105) by varying the number of threads (1, 2, 4, 6, 8, 10, 12, 14, and 16) and workloads (0C-0I-50D, 50C-25I-25D, and 100C-0I-0D).
+Verified the performance of the concurrent data structure for different problem sizes (2 × 1000, 2 × 10000, and 2 × 100000) by varying the number of threads (1, 2, 4, 6, 8, 10, 12, 14, and 16) and workloads (0C-0I-50D, 50C-25I-25D, and 100C-0I-0D).
 
 ### Coarse-grain Synchronization
 Coarse-grained synchronization involves locking the entire data structure (in this case, the entire doubly linked list) to protect it from concurrent access. When one thread acquires the lock, it has exclusive access to the entire list, preventing other threads from accessing it until the lock is released.
@@ -24,8 +24,11 @@ Fine-grained synchronization divides the doubly linked list into smaller, indepe
 ![image](https://github.com/chaitanyabalajireddy/HPC_Assignment_2/assets/91625648/06611d2b-1d20-41db-bfca-61c4214261be)
 ![image](https://github.com/chaitanyabalajireddy/HPC_Assignment_2/assets/91625648/62f3bc73-001a-4687-8214-f7fbdd1df5ee)
 
-###Optimistic Synchronization
+### Optimistic Synchronization
 Optimistic synchronization assumes that conflicts between threads are rare. Instead of locking data structures, each thread reads and makes modifications locally. Before applying changes, the thread validates that no other thread has modified the same data. If conflicts occur, the thread retries the operation.
+![image](https://github.com/chaitanyabalajireddy/HPC_Assignment_2/assets/91625648/e5eae4cf-c0fc-4e3a-b9ca-3462c363e911)
+![image](https://github.com/chaitanyabalajireddy/HPC_Assignment_2/assets/91625648/afb4dc79-7e91-470f-8ddb-741dbb35b609)
+![image](https://github.com/chaitanyabalajireddy/HPC_Assignment_2/assets/91625648/882743ef-6a39-4c09-bb78-0a652226c9d4)
 
 ### Lazy Synchronization
  Lazy synchronization aims to delay synchronization until absolutely necessary. Threads perform operations without initially acquiring locks. Only during critical sections or when conflicts are detected are locks acquired to ensure data consistency.
@@ -50,3 +53,5 @@ Non-blocking synchronization techniques aim to eliminate the use of locks entire
 ![image](https://github.com/chaitanyabalajireddy/HPC_Assignment_2/assets/91625648/59db95b0-db0d-462b-912c-70b11b174b76)
 ![image](https://github.com/chaitanyabalajireddy/HPC_Assignment_2/assets/91625648/1ec38168-a270-4c13-955a-5cff8ebaefbe)
 ![image](https://github.com/chaitanyabalajireddy/HPC_Assignment_2/assets/91625648/208c8571-ae50-4fa4-85e8-ee633233a1d0)
+
+NOTE: In some techniques for a problem siza 3 individual graphs are plotted due to different range of throughput for each workload.
